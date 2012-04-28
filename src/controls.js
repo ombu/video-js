@@ -23,7 +23,8 @@ _V_.ControlBar = _V_.Component.extend({
       "remainingTimeDisplay": {},
       "progressControl": {},
       "volumeControl": {},
-      "muteToggle": {}
+      "muteToggle": {},
+      'hdToggle': {}
     }
   },
 
