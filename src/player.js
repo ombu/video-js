@@ -151,7 +151,8 @@ _V_.Player = _V_.Component.extend({
             src: c[getAttribute]('src'),
             type: c[getAttribute]('type'),
             media: c[getAttribute]('media'),
-            title: c[getAttribute]('title')
+            title: c[getAttribute]('title'),
+            mode: c[getAttribute]('data-mode') ? c[getAttribute]('data-mode') : 'sd'
           });
         }
         if (c.nodeName.toLowerCase() == "track") {
@@ -732,8 +733,11 @@ _V_.Player = _V_.Component.extend({
         for (var a=0,b=sources;a<b.length;a++) {
           var source = b[a];
 
-          // Check if source can be played with this technology
-          if (tech.canPlaySource.call(this, source)) {
+          // Check if source can be played with this technology and that it is 
+          // in the correct mode
+          // @todo: should maybe check if another mode if available if no 
+          // sources of the current mode are available.
+          if (tech.canPlaySource.call(this, source) && source.mode == this.options.mode) {
 
             return { source: source, tech: techName };
 

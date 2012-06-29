@@ -61,6 +61,9 @@ VideoJS.options = {
   // defaultVolume: 0.85,
   defaultVolume: 0.00, // The freakin seaguls are driving me crazy!
 
+  // Default to SD video mode.
+  mode: "sd",
+
   // Included control sets
   components: {
     "posterImage": {},
