@@ -723,8 +723,8 @@ _V_.Player = _V_.Component.extend({
     // Loop through each playback technology in the options order
     for (var i=0,j=this.options.techOrder;i<j.length;i++) {
       var techName = j[i],
-          tech = _V_[techName];
-          // tech = _V_.tech[techName];
+        tech = _V_[techName];
+      // tech = _V_.tech[techName];
 
       // Check if the browser supports this technology
       if (tech.isSupported()) {
@@ -742,6 +742,12 @@ _V_.Player = _V_.Component.extend({
             return { source: source, tech: techName };
 
           }
+        }
+
+        // Check if SD is available if there are no SD videos.
+        if (this.options.mode == 'hd') {
+          this.options.mode = 'sd';
+          return this.selectSource(sources);
         }
       }
     }

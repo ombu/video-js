@@ -8,7 +8,6 @@ _V_.HdToggle = _V_.Button.extend({
     this._super(player, options);
 
     // Remove hdToggle if there's no hd videos.
-    /*
     var hd = false;
     for (source in player.options.sources) {
       if (player.options.sources[source].mode == 'hd') {
@@ -20,7 +19,6 @@ _V_.HdToggle = _V_.Button.extend({
     if (!hd) {
       this.hide();
     }
-    */
   },
 
   buildCSSClass: function() {
