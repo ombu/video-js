@@ -735,8 +735,6 @@ _V_.Player = _V_.Component.extend({
 
           // Check if source can be played with this technology and that it is 
           // in the correct mode
-          // @todo: should maybe check if another mode if available if no 
-          // sources of the current mode are available.
           if (tech.canPlaySource.call(this, source) && source.mode == this.options.mode) {
 
             return { source: source, tech: techName };
@@ -744,12 +742,13 @@ _V_.Player = _V_.Component.extend({
           }
         }
 
-        // Check if SD is available if there are no SD videos.
-        if (this.options.mode == 'hd') {
-          this.options.mode = 'sd';
-          return this.selectSource(sources);
-        }
       }
+    }
+
+    // Check if SD is available if there are no HD videos.
+    if (this.options.mode == 'hd') {
+      this.options.mode = 'sd';
+      return this.selectSource(sources);
     }
 
     return false;
