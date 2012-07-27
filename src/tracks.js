@@ -281,7 +281,7 @@ _V_.Track = _V_.Component.extend({
           text.push(line);
         }
 
-        cue.text = text.join('<br/>');
+        cue.text = text.join(' ');
 
         // Add this cue
         this.cues.push(cue);
