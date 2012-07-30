@@ -17,6 +17,7 @@ cat src/_begin.js > dist/video.js
 
 cat src/core.js >> dist/video.js
 cat src/lib.js >> dist/video.js
+cat src/ecma.js >> dist/video.js
 cat src/json.js >> dist/video.js
 cat src/events.js >> dist/video.js
 
