@@ -1,3 +1,4 @@
+* Allow disabling of default components
 * Duration is now setable (need ed for HLS m3u8 files)
 * Event binders (on/off/one) now return the player instance
 * Stopped player from going back to beginningg on ended event.
@@ -58,3 +59,6 @@ CHANGELOG
 
 ---- 3.2.1 / 2012-04-06 / options-width-fix ------------------------------------
 * Fixed setting width/height with javascript options
+
+---- 3.2.2 / 2012-05-02 / multiple-control-fades-fix ---------------------------
+* Fixed error with multiple controls fading listeners
