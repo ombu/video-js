@@ -26,6 +26,7 @@ cat src/player.js >> dist/video.js
 cat src/tech.js >> dist/video.js
 cat src/controls.js >> dist/video.js
 cat src/hd.js >> dist/video.js
+cat src/size.js >> dist/video.js
 
 cat src/tracks.js >> dist/video.js
 
