@@ -16,7 +16,6 @@ _V_.ControlBar = _V_.Component.extend({
     loadEvent: "play",
     components: {
       "playToggle": {},
-      "fullscreenToggle": {},
       "currentTimeDisplay": {},
       "timeDivider": {},
       "durationDisplay": {},

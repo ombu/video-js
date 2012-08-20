@@ -1,9 +1,17 @@
 /* Size Selector Menu
 ================================================================================ */
 _V_.SizeButton = _V_.Button.extend({
+  
+  sizes: new Array('small', 'large', 'fullscreen'),
+
+  default_size: 'small',
 
   init: function(player, options){
     this._super(player, options);
+
+    if (options.default_size) {
+      this.default_size = options.default_size;
+    }
 
     this.menu = this.createMenu();
 
@@ -37,16 +45,21 @@ _V_.SizeButton = _V_.Button.extend({
   // Create a menu item for each text track
   createItems: function(){
     var items = [];
-    this.each(new Array('small', 'large', 'fullscreen'), function(size){
-      items.push(new _V_.SizeMenuItem(this.player, {
+    this.each(this.sizes, function(size){
+      var item = new _V_.SizeMenuItem(this.player, {
         size: size
-      }));
+      });
+      if (size == this.default_size) {
+        item.selected(true);
+        this.player.addClass('vjs-size-' + size);
+      }
+      items.push(item);
     });
     return items;
   },
 
   buildCSSClass: function(){
-    return this.className + " vjs-menu-button " + this._super();
+    return "vjs-menu-button vjs-size-control " + this._super();
   },
 
 });
@@ -66,15 +79,15 @@ _V_.SizeMenuItem = _V_.MenuItem.extend({
   },
 
   onClick: function(){
-    this.player.trigger('sizechange');
-    this._super();
-
-    this.player.removeClass('vjs-size-small');
-    this.player.removeClass('vjs-size-large');
-
     if (this.size == 'fullscreen') {
       this.player.requestFullScreen();
     } else {
+      this.player.trigger('sizechange');
+      this._super();
+
+      this.player.removeClass('vjs-size-small');
+      this.player.removeClass('vjs-size-large');
+
       this.player.cancelFullScreen();
       this.player.addClass('vjs-size-' + this.size);
     }
@@ -87,5 +100,5 @@ _V_.SizeMenuItem = _V_.MenuItem.extend({
 });
 
 _V_.merge(_V_.ControlBar.prototype.options.components, {
-  "sizeButton": {},
+  "sizeButton": {}
 });
