@@ -62,12 +62,11 @@ _V_.DownloadMenuItem = _V_.MenuItem.extend({
     var download = this.download = options.download;
 
     // Modify options for parent MenuItem class's init.
-    options.label = download.label;
+    options.label = '<a href="' + download.link + '">' + download.label + '</a>';
     this._super(player, options);
   },
 
   onClick: function(){
-    document.location = this.download.link;
   }
 
 });
