@@ -16,7 +16,7 @@ _V_.SlidesButton = _V_.Button.extend({
 
   createElement: function() {
     return this._super("div", {
-      innerHTML: '<div><a href="' + this.slide_link + '" class="vjs-control-text">' + this.buttonText + '</a></div>'
+      innerHTML: '<div><a title="Download Slides" href="' + this.slide_link + '" class="vjs-control-text">' + this.buttonText + '</a></div>'
     });
   },
 
