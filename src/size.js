@@ -88,7 +88,9 @@ _V_.SizeMenuItem = _V_.MenuItem.extend({
       this.player.removeClass('vjs-size-small');
       this.player.removeClass('vjs-size-large');
 
-      this.player.cancelFullScreen();
+      if (this.isFullWindow = false) {
+        this.player.cancelFullScreen();
+      }
       this.player.addClass('vjs-size-' + this.size);
     }
   },
