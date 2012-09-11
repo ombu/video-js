@@ -57,7 +57,9 @@ _V_.html5 = _V_.PlaybackTech.extend({
     // This fixes both issues. Need to wait for API, so it updates displays correctly
     player.ready(function(){
       if (this.options.autoplay && this.paused()) {
-        this.tag.poster = null; // Chrome Fix. Fixed in Chrome v16.
+        if (this.tag.hasOwnProperty('poster')) {
+          this.tag.poster = null; // Chrome Fix. Fixed in Chrome v16.
+        }
         this.play();
       }
     });
