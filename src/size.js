@@ -60,7 +60,7 @@ _V_.SizeButton = _V_.Button.extend({
 
   buildCSSClass: function(){
     return "vjs-menu-button vjs-size-control " + this._super();
-  },
+  }
 
 });
 
