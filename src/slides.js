@@ -2,7 +2,7 @@
 ================================================================================ */
 _V_.SlidesButton = _V_.Button.extend({
 
-  buttonText: 'Slides',
+  buttonText: 'PDF',
 
   init: function(player, options) {
     this.slide_link = player.options.slide_link;
