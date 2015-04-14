@@ -1461,6 +1461,8 @@ _V_.Player = _V_.Component.extend({
     options.loop = tag[getAttribute]("loop") !== null;
     options.muted = tag[getAttribute]("muted") !== null;
     
+    options.default_size = tag[getAttribute]("default_size");
+
     options.width = tag[getAttribute]("width");
     options.height = tag[getAttribute]("height");
 
@@ -3885,13 +3887,13 @@ _V_.SizeButton = _V_.Button.extend({
   
   sizes: new Array('small', 'large', 'fullscreen'),
 
-  default_size: 'small',
+  default_size: 'large',
 
   init: function(player, options){
     this._super(player, options);
 
-    if (options.default_size) {
-      this.default_size = options.default_size;
+    if (player.options.default_size) {
+      this.default_size = player.options.default_size;
     }
 
     this.menu = this.createMenu();

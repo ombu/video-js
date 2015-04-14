@@ -140,6 +140,8 @@ _V_.Player = _V_.Component.extend({
     options.loop = tag[getAttribute]("loop") !== null;
     options.muted = tag[getAttribute]("muted") !== null;
     
+    options.default_size = tag[getAttribute]("default_size");
+
     options.width = tag[getAttribute]("width");
     options.height = tag[getAttribute]("height");
 
