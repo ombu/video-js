@@ -3936,7 +3936,9 @@ _V_.SizeButton = _V_.Button.extend({
         item.selected(true);
         this.player.addClass('vjs-size-' + size);
       }
-      items.push(item);
+      if (size == 'fullscreen'){
+        items.push(item);
+      }
     });
     return items;
   },
